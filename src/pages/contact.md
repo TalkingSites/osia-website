@@ -1,6 +1,6 @@
 ---
-title: Contact Space Club!
-description: Want to reach out? You can do so from this page
+title: Contact OSIA
+description: Reach out to use via contact form.
 permalink: "/contact/"
 
 

@@ -90,7 +90,7 @@ async function performSearch() {
     resultsEl.innerHTML = `
       <div class="text-center py-4">
         <div class="spinner-border text-primary" role="status" aria-hidden="true"></div>
-        <div class="mt-2 text-secondary">Loading search…</div>
+        <div class="mt-2 text-secondary-emphasis">Loading search…</div>
       </div>`;
     await ensurePagefind();
   }
@@ -193,7 +193,7 @@ async function performSearch() {
           <div class="flex-grow-1 pe-0 pe-sm-2">
             <div class="mb-2 d-flex flex-wrap align-items-center">${badges}</div>
             <h6 class="mb-1 text-primary">${title}</h6>
-            <p class="mb-0 small text-secondary">${preview}</p>
+            <p class="mb-0 small text-secondary-emphasis">${preview}</p>
           </div>
           ${rightCol}
         </div>

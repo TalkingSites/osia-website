@@ -1,16 +1,16 @@
 {% if type == "preview" %}
     {% if excludeFeatured %}
-        {% set posts = collections.previewPosts %}
+        {% set submissions = collections.previewSubmissions %}
     {% else %}
-        {% set posts = collections.previewPostsAll %}
+        {% set submissions = collections.previewSubmissionsAll %}
     {% endif %}
 {% else %}
-    {% set posts = collections.posts %}
+    {% set submissions = collections.submissions %}
 {% endif %}
 
-{% if posts and posts | length > 0 %}
+{% if submissions and submissions | length > 0 %}
     <div class="row row-gap-4">
-        {% for post in posts %}
+        {% for post in submissions %}
             <div class="col-12 col-md-4 pb-3">
                 <article class="hover-border-primary card bg-body-tertiary rounded-3 shadow-sm border-primary border-opacity-25 h-100 overflow-hidden">
                     {% if post.data.image %}
@@ -81,15 +81,15 @@
     
     {% if type == "preview" %}
         <div class="text-center mt-4">
-            <p class="text-muted mb-3">Showing {{ posts | length }} of {{ collections.posts | length }} posts</p>
-            <a href="/posts/" class="btn btn-outline-primary">
-                <i class="bi bi-arrow-right me-2"></i>View All Posts
+            <p class="text-muted mb-3">Showing {{ submissions | length }} of {{ collections.submissions | length }} submissions</p>
+            <a href="/publications/" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-right me-2"></i>View All Submissions
             </a>
         </div>
     {% endif %}
 {% else %}
     <div class="alert alert-info" role="alert">
         <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
-        No posts at this time. Check back soon!
+        No submissions at this time. Check back soon!
     </div>
 {% endif %}

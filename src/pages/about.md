@@ -1,11 +1,11 @@
 ---
-title: About Us
-description: Learn more about what Space Club! is and what we do.
-permalink: "/about/"
+title: Information About Open Source Industry Australia
+description: History of OSIA and the current happenings
+permalink: "/pages/about/"
 ---
 
-# About Space Club!
-
+# History of OSIA
+We wrote to the government and lobby it.
 
 ## What about this website?
-If you're looking for info on the tech side of this website, you can read more on our [Under the Hood](/posts/under-the-hood) post.
+We have [Publications](/posts/).

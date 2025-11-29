@@ -17,6 +17,11 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate));
   });
 
+  eleventyConfig.addCollection("submissions", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/pages/publications/*.md")
+      .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate));
+  });
+
   // Upcoming events
   eleventyConfig.addCollection("upcomingEvents", function (collectionApi) {
     const now = dayjs();
@@ -46,6 +51,13 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate));
   });
 
+  // Featured posts
+  eleventyConfig.addCollection("featuredSubmissions", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/pages/publications/*.md")
+      .filter(p => p.data.featured === true)
+      .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate));
+  });
+
   // Preview events (excluding featured by default)
   eleventyConfig.addCollection("previewEvents", function (collectionApi) {
     const now = dayjs();
@@ -67,6 +79,14 @@ module.exports = function (eleventyConfig) {
       .slice(0, 3);
   });
 
+  // Preview posts (excluding featured by default)
+  eleventyConfig.addCollection("previewSubmissions", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/pages/publications/*.md")
+      .filter(p => p.data.featured !== true) // hide featured
+      .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate))
+      .slice(0, 3);
+  });
+
   // Preview events (including featured)
   eleventyConfig.addCollection("previewEventsAll", function (collectionApi) {
     const now = dayjs();
@@ -82,6 +102,13 @@ module.exports = function (eleventyConfig) {
   // Preview posts (including featured)
   eleventyConfig.addCollection("previewPostsAll", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/pages/posts/*.md")
+      .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate))
+      .slice(0, 3);
+  });
+
+  // Preview posts (including featured)
+  eleventyConfig.addCollection("previewSubmissionsAll", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/pages/publications/*.md")
       .sort((a, b) => new Date(b.data.postDate) - new Date(a.data.postDate))
       .slice(0, 3);
   });
